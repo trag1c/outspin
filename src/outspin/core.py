@@ -12,6 +12,7 @@ MODS = {
     "\r": "enter",
 }
 
+
 class Buffer:
     def __init__(self) -> None:
         self._buffer = ""
