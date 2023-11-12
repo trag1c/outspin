@@ -17,3 +17,4 @@ check:
     -pytest
     -mypy src/outspin/
     -ruff check src/outspin/
+    -ruff format src/outspin/ --check
