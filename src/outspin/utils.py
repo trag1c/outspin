@@ -1,26 +1,12 @@
-import sys
+import os
 import termios
 import tty
 
 
-def _unsafe_getch() -> str:
-    fd = sys.stdin.fileno()
-    old = termios.tcgetattr(fd)
-    try:
-        tty.setraw(fd)
-        return sys.stdin.read(1)
-    finally:
-        termios.tcsetattr(fd, termios.TCSADRAIN, old)
-
-
-def clear_stdin() -> None:
-    termios.tcflush(sys.stdin, termios.TCIOFLUSH)
-
-
 def getch() -> str:
-    ch = _unsafe_getch()
-    if ch == "\x03":
-        raise KeyboardInterrupt
-    if ch == "\x04":
-        raise EOFError
-    return ch
+    old_state = termios.tcgetattr(1)
+    tty.setcbreak(1)
+    try:
+        return os.read(1, 8).decode("utf-8")
+    finally:
+        termios.tcsetattr(1, termios.TCSADRAIN, old_state)
