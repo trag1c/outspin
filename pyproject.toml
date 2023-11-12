@@ -54,6 +54,15 @@ ignore = [
 ]
 exclude = ["tests"]
 
+[tool.interrogate]
+ignore-init-method = true
+ignore-semiprivate = true
+ignore-private = true
+ignore-module = true
+ignore-magic = true
+ignore-nested-functions = true
+verbose = 1
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
