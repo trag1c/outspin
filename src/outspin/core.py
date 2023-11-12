@@ -46,9 +46,10 @@ def get_key() -> str:
     return MODS.get(ch, ch)
 
 
-def wait_for(*keys: str) -> None:
-    while get_key() not in keys:
+def wait_for(*keys: str) -> str:
+    while (key := get_key()) not in keys:
         pass
+    return key
 
 
 def pause(prompt: str | None = None) -> None:
