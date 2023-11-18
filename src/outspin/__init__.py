@@ -13,7 +13,7 @@ class OutspinValueError(OutspinError, ValueError):
     """Exception for value errors related to outspin's API."""
 
 
-def _getch() -> str:
+def _getch() -> str:  # pragma: no cover
     old_state = termios.tcgetattr(1)
     tty.setcbreak(1)
     try:
