@@ -5,7 +5,7 @@ import termios
 import tty
 
 
-def getch() -> str:
+def _getch() -> str:
     old_state = termios.tcgetattr(1)
     tty.setcbreak(1)
     try:
@@ -14,7 +14,7 @@ def getch() -> str:
         termios.tcsetattr(1, termios.TCSADRAIN, old_state)
 
 
-MODS = {
+_MODS = {
     "\x1b": "esc",
     "\x1b[A": "up",
     "\x1b[B": "down",
@@ -56,7 +56,7 @@ MODS = {
 
 
 def get_key() -> str:
-    return MODS.get(ch := getch(), ch)
+    return _MODS.get(ch := _getch(), ch)
 
 
 def wait_for(*keys: str) -> str:
@@ -69,5 +69,5 @@ def pause(prompt: str | None = None) -> None:
     if prompt is None:
         prompt = "Press any key to continue..."
     print(prompt, end="", flush=True)
-    getch()
+    _getch()
     print()
