@@ -56,16 +56,19 @@ _MODS = {
 
 
 def get_key() -> str:
+    """Return a keypress from standard input."""
     return _MODS.get(ch := _getch(), ch)
 
 
 def wait_for(*keys: str) -> str:
+    """Wait for one of the keys to be pressed and return it."""
     while (key := get_key()) not in keys:
         pass
     return key
 
 
 def pause(prompt: str | None = None) -> None:
+    """Display the prompt and pause the program until a key is pressed."""
     if prompt is None:
         prompt = "Press any key to continue..."
     print(prompt, end="", flush=True)
