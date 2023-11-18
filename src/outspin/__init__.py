@@ -5,6 +5,14 @@ import termios
 import tty
 
 
+class OutspinError(Exception):
+    """Base class for exceptions raised by outspin."""
+
+
+class OutspinValueError(OutspinError, ValueError):
+    """Exception for value errors related to outspin's API."""
+
+
 def _getch() -> str:
     old_state = termios.tcgetattr(1)
     tty.setcbreak(1)
@@ -62,6 +70,8 @@ def get_key() -> str:
 
 def wait_for(*keys: str) -> str:
     """Wait for one of the keys to be pressed and return it."""
+    if not keys:
+        raise OutspinValueError("No keys to wait for")
     while (key := get_key()) not in keys:
         pass
     return key
