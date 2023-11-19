@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "outspin"
 version = "0.1.0"
-description = ""
+description = "Conveniently read single char inputs in the console."
 authors = ["trag1c <trag1cdev@yahoo.com>"]
 license = "MIT"
 readme = "README.md"
