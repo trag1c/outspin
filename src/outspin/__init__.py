@@ -24,6 +24,8 @@ def _getch() -> str:  # pragma: no cover
 
 _MODS = {
     "\x1b": "esc",
+    "\x7f": "backspace",
+    "\x1b[3~": "delete",
     "\x1b[A": "up",
     "\x1b[B": "down",
     "\x1b[C": "right",
