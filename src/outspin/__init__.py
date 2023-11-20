@@ -1,6 +1,11 @@
 from __future__ import annotations
 
 import os
+import sys
+
+if sys.platform in ("win32", "cygwin"):  # pragma: no cover
+    raise OSError("outspin is not supported on Windows")
+
 import termios
 import tty
 
