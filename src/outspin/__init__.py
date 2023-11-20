@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 import sys
+from string import ascii_uppercase
 
 if sys.platform in ("win32", "cygwin"):  # pragma: no cover
     raise OSError("outspin is not supported on Windows")
@@ -37,6 +38,7 @@ _MODS = {
     "\x1b[D": "left",
     " ": "space",
     "\t": "tab",
+    "\x1b[Z": "shift+tab",
     "\r": "enter",
     "\n": "enter",
     "\r\n": "enter",
@@ -64,9 +66,27 @@ _MODS = {
     "\x1b[1;4B": "shift+alt+down",
     "\x1b[1;4C": "shift+alt+right",
     "\x1b[1;4D": "shift+alt+left",
-    "\x0c": "^L",
-    "\x04": "^D",
-    "\x03": "^C",
+    "\x1b[1;10A": "shift+alt+up",
+    "\x1b[1;10B": "shift+alt+down",
+    "\x1b[1;10C": "shift+alt+right",
+    "\x1b[1;10D": "shift+alt+left",
+    "\x1b[1;6A": "shift+ctrl+up",
+    "\x1b[1;6B": "shift+ctrl+down",
+    "\x1b[1;6C": "shift+ctrl+right",
+    "\x1b[1;6D": "shift+ctrl+left",
+    "\x1b[1;2P": "shift+f1",
+    "\x1b[1;2Q": "shift+f2",
+    "\x1b[1;2R": "shift+f3",
+    "\x1b[1;2S": "shift+f4",
+    "\x1b[15;2~": "shift+f5",
+    "\x1b[17;2~": "shift+f6",
+    "\x1b[18;2~": "shift+f7",
+    "\x1b[19;2~": "shift+f8",
+    "\x1b[20;2~": "shift+f9",
+    "\x1b[21;2~": "shift+f10",
+    "\x1b[23;2~": "shift+f11",
+    "\x1b[24;2~": "shift+f12",
+    **{chr(i): f"^{c}" for i, c in enumerate(ascii_uppercase, 1) if c not in "IJM"},
 }
 
 
