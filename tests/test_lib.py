@@ -3,6 +3,7 @@ from unittest.mock import patch
 import pytest
 
 from outspin import get_key, wait_for, pause, OutspinValueError
+from outspin.constants import *
 
 
 @pytest.mark.parametrize(
