@@ -21,7 +21,7 @@ pip install git+https://github.com/trag1c/outspin.git
 
 ### Select Menu
 
-<!-- vid here -->
+https://github.com/trag1c/outspin/assets/77130613/ea0be955-302d-4ff3-85c9-8f7c451e6026
 
 <details>
     <summary>Source</summary>
@@ -54,7 +54,7 @@ print("Selected", select("Python", "Rust", "Swift", "C++", "C", "Kotlin"))
 
 ### Typing Test
 
-<!-- vid -->
+https://github.com/trag1c/outspin/assets/77130613/c44a8d2f-8b1e-4948-8e78-15018e2e3667
 
 <details>
   <summary>Source</summary>
