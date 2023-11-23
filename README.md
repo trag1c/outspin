@@ -4,6 +4,11 @@
 - [Examples](#examples)
   - [Select Menu](#select-menu)
   - [Typing Test](#typing-test)
+- [Reference](#reference)
+  - [`get_key`](#get_key)
+  - [`wait_for`](#wait_for)
+  - [`pause`](#pause)
+  - [`constants`](#constants)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -159,6 +164,56 @@ if __name__ == "__main__":
     main(int(sys.argv[1] if len(sys.argv) > 1 else 30))
 ```
 </details>
+
+## Reference
+
+### `get_key`
+> Signtaure: `() -> None`
+
+Returns a keypress from standard input. Only recognizes keypresses that are
+actual inputs (so just pressing e.g. `shift` or `caps lock` won't be recognized
+as they don't actually input anything). `outspin` also returns the actual input,
+so pressing `shift+a` will make `get_key()` return `A`.
+
+> [!Note]
+> `outspin` translates dozens of ANSI codes to human-readable names under the
+> hood. If you spot a case where an ANSI code (e.g. `\x1b[15;2~`) doesn't get
+> converted, please open an issue and/or submit a PR adding the code.
+
+
+### `wait_for`
+> Signature: `(*keys: str) -> str`
+
+Waits for one of the keys to be pressed and returns it.
+```pycon
+>>> wait_for(*"wasd")  # pressing g t 4 2 q a
+'a'
+```
+`wait_for` requires at least one key to be provided.
+```pycon
+>>> wait_for()
+outspin.OutspinValueError: No keys to wait for
+```
+
+
+### `pause`
+> Signature: `(prompt: str | None = None) -> None`
+
+Displays the prompt and pauses the program until a key is pressed.
+The default prompt is `Press any key to continue...`.
+
+
+### `constants`
+
+A namespace containing a few useful characters groups:
+- `ARROWS`: `up` `down` `left` `right`
+- `F_KEYS`: `f1` → `f12`
+- `DIGITS` or `NUMBERS`: `0` → `9` (same as `string.digits`)
+- `LOWERCASE`: `a` → `z` (same as `string.ascii_lowercase`)
+- `UPPERCASE`: `A` → `Z` (same as `string.ascii_uppercase`)
+- `LETTERS`: `LOWERCASE` + `UPPERCASE` (same as `string.ascii_letters`)
+- `PUNCTUATION`: ``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`` (same as `string.punctuation`)
+
 
 ## Contributing
 
