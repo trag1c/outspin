@@ -4,6 +4,7 @@
 - [Examples](#examples)
   - [Select Menu](#select-menu)
   - [Typing Test](#typing-test)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
@@ -159,11 +160,42 @@ if __name__ == "__main__":
 ```
 </details>
 
+## Contributing
+
+Contributions are welcome! 
+
+Please open an issue before submitting a pull request
+(doesn't apply to minor changes like typos).
+
+To get started:
+
+1. Clone the project:
+```bash
+git clone https://github.com/trag1c/outspin.git
+```
+
+2. Set up the project with [just] (make sure you have [poetry] installed):
+```bash
+just install
+```
+
+> **Note**
+> If you don't want to install `just`, simply look up the recipes
+> in the project's `justfile`.
+
+3. After you're done, use the following `just` recipes for checking your changes:
+```bash
+just check     # pytest, mypy, ruff 
+just coverage  # pytest (with coverage), interrogate (docstring coverage)
+```
+
 ## License
 `outspin` is licensed under the [MIT License].  
 © [trag1c], 2023
 
 [MIT License]: https://opensource.org/license/mit/
+[poetry]: https://python-poetry.org/
+[just]: https://github.com/casey/just/
 [trag1c]: https://github.com/trag1c/
 [dahlia]: https://github.com/dahlia-lib/dahlia/
 [nouns.txt]: https://gist.github.com/trag1c/f74b2ab3589bc4ce5706f934616f6195/
