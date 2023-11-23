@@ -59,8 +59,7 @@ https://github.com/trag1c/outspin/assets/77130613/c44a8d2f-8b1e-4948-8e78-15018e
 <details>
   <summary>Source</summary>
 
-> Requires [dahlia](https://github.com/dahlia-lib/dahlia) and
-> [nouns.txt](https://gist.github.com/trag1c/f74b2ab3589bc4ce5706f934616f6195)
+> Requires [dahlia] and [nouns.txt]
 ```py
 from __future__ import annotations
 
@@ -161,5 +160,10 @@ if __name__ == "__main__":
 </details>
 
 ## License
-`outspin` is licensed under the [MIT License](https://opensource.org/license/mit/).  
-© [trag1c](https://github.com/trag1c/), 2023
+`outspin` is licensed under the [MIT License].  
+© [trag1c], 2023
+
+[MIT License]: https://opensource.org/license/mit/
+[trag1c]: https://github.com/trag1c/
+[dahlia]: https://github.com/dahlia-lib/dahlia/
+[nouns.txt]: https://gist.github.com/trag1c/f74b2ab3589bc4ce5706f934616f6195/
