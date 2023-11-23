@@ -174,10 +174,11 @@ if __name__ == "__main__":
 ### `get_key`
 > Signature: `() -> None`
 
-Returns a keypress from standard input. Only recognizes keypresses that are
-actual inputs (so just pressing e.g. `shift` or `caps lock` won't be recognized
-as they don't actually input anything). `outspin` also returns the actual input,
-so pressing `shift+a` will make `get_key()` return `A`.
+Returns a keypress from standard input. It exclusively identifies keypresses
+that result in tangible inputs, therefore modifier keys like `shift` or
+`caps lock` are ignored. `outspin` also returns the actual input, meaning that
+pressing, for instance, `shift+a` will make `get_key()` return `A`.
+
 
 > [!Note]
 > `outspin` translates dozens of ANSI codes to human-readable names under the
