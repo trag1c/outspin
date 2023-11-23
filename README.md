@@ -168,7 +168,7 @@ if __name__ == "__main__":
 ## Reference
 
 ### `get_key`
-> Signtaure: `() -> None`
+> Signature: `() -> None`
 
 Returns a keypress from standard input. Only recognizes keypresses that are
 actual inputs (so just pressing e.g. `shift` or `caps lock` won't be recognized
@@ -199,7 +199,7 @@ outspin.OutspinValueError: No keys to wait for
 ### `pause`
 > Signature: `(prompt: str | None = None) -> None`
 
-Displays the prompt and pauses the program until a key is pressed.
+Displays the prompt and pauses the program until a key is pressed.  
 The default prompt is `Press any key to continue...`.
 
 
