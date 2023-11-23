@@ -23,6 +23,10 @@ From source:
 pip install git+https://github.com/trag1c/outspin.git
 ```
 
+> [!Warning]
+> `outspin` currently does not support Windows ([#1]). Contributions to address
+> this issue are very welcome.
+
 ## Examples
 
 ### Select Menu
@@ -254,3 +258,4 @@ just coverage  # pytest (with coverage), interrogate (docstring coverage)
 [trag1c]: https://github.com/trag1c/
 [dahlia]: https://github.com/dahlia-lib/dahlia/
 [nouns.txt]: https://gist.github.com/trag1c/f74b2ab3589bc4ce5706f934616f6195/
+[#1]: https://github.com/trag1c/outspin/issues/1
