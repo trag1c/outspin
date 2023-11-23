@@ -179,7 +179,7 @@ git clone https://github.com/trag1c/outspin.git
 just install
 ```
 
-> **Note**
+> [!Note]
 > If you don't want to install `just`, simply look up the recipes
 > in the project's `justfile`.
 
