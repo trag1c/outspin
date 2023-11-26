@@ -245,7 +245,7 @@ just install
 > If you don't want to install `just`, simply look up the recipes
 > in the project's `justfile`.
 
-3. After you're done, use the following `just` recipes for checking your changes:
+3. After you're done, use the following `just` recipes to check your changes:
 ```bash
 just check     # pytest, mypy, ruff 
 just coverage  # pytest (with coverage), interrogate (docstring coverage)
