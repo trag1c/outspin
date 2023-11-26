@@ -1,5 +1,7 @@
 # outspin
 
+`outspin` is a tiny, low-abstraction library bringing C's `getch()` functionality to Python, with a sane API. An ideal choice for developers seeking direct control over their console applications.
+
 - [Installation](#installation)
 - [Examples](#examples)
   - [Select Menu](#select-menu)
