@@ -253,7 +253,7 @@ just coverage  # pytest (with coverage), interrogate (docstring coverage)
 
 ## License
 `outspin` is licensed under the [MIT License].  
-© [trag1c], 2023
+© [trag1c], 2023–2024
 
 [MIT License]: https://opensource.org/license/mit/
 [poetry]: https://python-poetry.org/
