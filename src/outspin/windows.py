@@ -64,7 +64,7 @@ _MODS = {
 
 def _getch() -> bytes:  # pragma: no cover
     ks = msvcrt.getch()
-    if ks in b"\x00\x0e":
+    if ks in b"\x00\xe0":
         ks += msvcrt.getch()
     return ks
 
