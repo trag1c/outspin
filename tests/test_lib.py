@@ -1,3 +1,4 @@
+import sys
 from unittest.mock import patch
 
 import pytest
@@ -5,10 +6,22 @@ import pytest
 from outspin import get_key, wait_for, pause, OutspinValueError
 from outspin.constants import *
 
+IS_WINDOWS = sys.platform in ("win32", "cygwin")
+PLATFORM = "windows" if IS_WINDOWS else "unix"
+
 
 @pytest.mark.parametrize(
     ("getch_payload", "key"),
     (
+        (b"x", "x"),
+        (b"\x00?", "f5"),
+        (b"\xe0\x87", "shift+f11"),
+        (b"\xe0H", "up"),
+        (b"\x00\xa0", "alt+down"),
+        (b"\x0c", "^L"),
+        (b"\x04", "^D"),
+        (b"\x03", "^C"),
+    ) if IS_WINDOWS else (
         ("x", "x"),
         ("\x1b[15~", "f5"),
         ("\x1b[1;2A", "shift+up"),
@@ -19,7 +32,7 @@ from outspin.constants import *
         ("\x03", "^C"),
     ),
 )
-@patch("outspin._getch")
+@patch(f"outspin.{PLATFORM}._getch")
 def test_get_key(getch_mock, getch_payload, key):
     getch_mock.side_effect = None
     getch_mock.return_value = getch_payload
