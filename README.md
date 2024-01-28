@@ -1,6 +1,8 @@
 # outspin
 
-`outspin` is a tiny, low-abstraction library bringing C's `getch()` functionality to Python, with a sane API. An ideal choice for developers seeking direct control over their TUI applications.
+`outspin` is a tiny, low-abstraction library bringing C's `getch()`
+functionality to Python, with a sane API. An ideal choice for developers seeking
+direct control over their TUI applications.
 
 - [Installation](#installation)
 - [Examples](#examples)
@@ -181,12 +183,10 @@ that result in tangible inputs, therefore modifier keys like `shift` or
 `caps lock` are ignored. `outspin` also returns the actual input, meaning that
 pressing, for instance, `shift+a` will make `get_key()` return `A`.
 
-
 > [!Note]
 > `outspin` translates dozens of ANSI codes to human-readable names under the
 > hood. If you spot a case where an ANSI code (e.g. `\x1b[15;2~`) doesn't get
 > converted, please open an issue and/or submit a PR adding the code.
-
 
 ### `wait_for`
 > Signature: `(*keys: str) -> str`
@@ -202,13 +202,11 @@ Waits for one of the keys to be pressed and returns it.
 outspin.OutspinValueError: No keys to wait for
 ```
 
-
 ### `pause`
 > Signature: `(prompt: str | None = None) -> None`
 
 Displays the prompt and pauses the program until a key is pressed.  
 The default prompt is `Press any key to continue...`.
-
 
 ### `constants`
 
@@ -219,7 +217,8 @@ A namespace containing a few useful characters groups:
 - `LOWERCASE`: `a` → `z` (same as `string.ascii_lowercase`)
 - `UPPERCASE`: `A` → `Z` (same as `string.ascii_uppercase`)
 - `LETTERS`: `LOWERCASE` + `UPPERCASE` (same as `string.ascii_letters`)
-- `PUNCTUATION`: ``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`` (same as `string.punctuation`)
+- `PUNCTUATION`: ``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`` (same as
+  `string.punctuation`)
 
 
 ## Contributing
