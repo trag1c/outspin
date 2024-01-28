@@ -13,6 +13,7 @@ direct control over their TUI applications.
   - [`wait_for`](#wait_for)
   - [`pause`](#pause)
   - [`constants`](#constants)
+- [Known Issues](#known-issues)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -216,6 +217,9 @@ A namespace containing a few useful characters groups:
 - `PUNCTUATION`: ``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`` (same as
   `string.punctuation`)
 
+## Known Issues
+* Some combinations (like `shift+up` or `alt+shift+right`) may not work
+  correctly on Windows.
 
 ## Contributing
 
