@@ -173,7 +173,7 @@ if __name__ == "__main__":
 ## Reference
 
 ### `get_key`
-> Signature: `() -> None`
+> Signature: `() -> str`
 
 Returns a keypress from standard input. It exclusively identifies keypresses
 that result in tangible inputs, therefore modifier keys like `shift` or
