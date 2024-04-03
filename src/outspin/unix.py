@@ -55,6 +55,8 @@ _MODS = {
     "\x1b[1;10D": "shift+alt+left",
     "\x1b[1;5A": "ctrl+up",
     "\x1b[1;5B": "ctrl+down",
+    "\x1b[1;5D": "ctrl+left",
+    "\x1b[1;5C": "ctrl+right",
     "\x1b[1;6A": "shift+ctrl+up",
     "\x1b[1;6B": "shift+ctrl+down",
     "\x1b[1;6C": "shift+ctrl+right",
