@@ -1,13 +1,27 @@
 from __future__ import annotations
 
 import sys
+from typing import TYPE_CHECKING, overload
 
 from outspin.exceptions import OutspinValueError
+
+if TYPE_CHECKING:
+    from typing_extensions import Never
 
 if sys.platform == "win32" or sys.platform == "cygwin":
     from outspin.windows import _getch, get_key
 else:
     from outspin.unix import _getch, get_key
+
+
+@overload
+def wait_for() -> Never:
+    ...
+
+
+@overload
+def wait_for(*keys: str) -> str:
+    ...
 
 
 def wait_for(*keys: str) -> str:
