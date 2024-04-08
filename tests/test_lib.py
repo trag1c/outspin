@@ -22,7 +22,9 @@ PLATFORM = "windows" if IS_WINDOWS else "unix"
         (b"\x04", "^D"),
         (b"\x03", "^C"),
         (b"\x1b[1;5D", "ctrl+left"),
-    ) if IS_WINDOWS else (
+    )
+    if IS_WINDOWS
+    else (
         ("x", "x"),
         ("\x1b[15~", "f5"),
         ("\x1b[1;2A", "shift+up"),

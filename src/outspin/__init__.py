@@ -15,13 +15,11 @@ else:
 
 
 @overload
-def wait_for() -> Never:
-    ...
+def wait_for() -> Never: ...
 
 
 @overload
-def wait_for(*keys: str) -> str:
-    ...
+def wait_for(*keys: str) -> str: ...
 
 
 def wait_for(*keys: str) -> str:
