@@ -9,6 +9,8 @@ if sys.platform not in ("win32", "cygwin"):
 import msvcrt
 from string import ascii_uppercase
 
+assert sys.platform == "win32" or sys.platform == "cygwin"
+
 _MODS = {
     b"\x1b": "esc",
     b"\x08": "backspace",

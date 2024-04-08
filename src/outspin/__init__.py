@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+import sys
+
 from outspin.exceptions import OutspinValueError
 
-try:
-    from outspin.unix import _getch, get_key
-except ImportError:
+if sys.platform == "win32" or sys.platform == "cygwin":
     from outspin.windows import _getch, get_key
+else:
+    from outspin.unix import _getch, get_key
 
 
 def wait_for(*keys: str) -> str:

@@ -11,6 +11,8 @@ import termios
 import tty
 from string import ascii_uppercase
 
+assert sys.platform != "win32" and sys.platform != "cygwin"
+
 _MODS = {
     "\x1b": "esc",
     "\x7f": "backspace",
