@@ -16,7 +16,6 @@ coverage:
 # runs pytest, mypy and ruff
 check:
     pytest
-    mypy --strict outspin
-    mypy tests
+    mypy --strict outspin tests
     ruff check
     ruff format --check

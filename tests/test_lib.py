@@ -1,5 +1,7 @@
+from __future__ import annotations
+
 import sys
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 import pytest
 
@@ -41,13 +43,13 @@ PLATFORM = "windows" if IS_WINDOWS else "unix"
     ),
 )
 @patch(f"outspin.{PLATFORM}._getch")
-def test_get_key(getch_mock, getch_payload, key):
+def test_get_key(getch_mock: Mock, getch_payload: bytes, key: str) -> None:
     getch_mock.side_effect = None
     getch_mock.return_value = getch_payload
     assert get_key() == key
 
 
-def test_wait_for_no_keys():
+def test_wait_for_no_keys() -> None:
     with pytest.raises(OutspinValueError, match="No keys to wait for"):
         wait_for()
 
@@ -61,7 +63,12 @@ def test_wait_for_no_keys():
     ],
 )
 @patch("outspin.get_key")
-def test_wait_for(get_key_mock, wait_for_keys, pressed_keys, returned_key):
+def test_wait_for(
+    get_key_mock: Mock,
+    wait_for_keys: tuple[str, ...],
+    pressed_keys: tuple[str, ...],
+    returned_key: str,
+) -> None:
     get_key_mock.side_effect = pressed_keys
     assert wait_for(*wait_for_keys) == returned_key
 
@@ -74,7 +81,7 @@ def test_wait_for(get_key_mock, wait_for_keys, pressed_keys, returned_key):
     ],
 )
 @patch("outspin._getch")
-def test_pause(getch_mock, prompt):
+def test_pause(getch_mock: Mock, prompt: str | None) -> None:
     getch_mock.return_value = "x"
     with patch("builtins.print") as print_mock:
         pause(prompt)
