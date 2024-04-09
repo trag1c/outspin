@@ -54,11 +54,11 @@ def test_wait_for_no_keys():
 
 @pytest.mark.parametrize(
     ("wait_for_keys", "pressed_keys", "returned_key"),
-    (
+    [
         (tuple("wasd"), ("q", "w"), "w"),
         (("f7", "f8"), ("f6", "f9", "f8"), "f8"),
         (("up",), ("down", "left", "right", "up"), "up"),
-    ),
+    ],
 )
 @patch("outspin.get_key")
 def test_wait_for(get_key_mock, wait_for_keys, pressed_keys, returned_key):
@@ -68,10 +68,10 @@ def test_wait_for(get_key_mock, wait_for_keys, pressed_keys, returned_key):
 
 @pytest.mark.parametrize(
     "prompt",
-    (
+    [
         None,
         "Press any key!",
-    ),
+    ],
 )
 @patch("outspin._getch")
 def test_pause(getch_mock, prompt):

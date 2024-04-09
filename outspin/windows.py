@@ -9,7 +9,7 @@ if sys.platform not in ("win32", "cygwin"):
 import msvcrt
 from string import ascii_uppercase
 
-assert sys.platform == "win32" or sys.platform == "cygwin"
+assert sys.platform == "win32" or sys.platform == "cygwin"  # noqa: S101
 
 _MODS = {
     b"\x1b": "esc",
