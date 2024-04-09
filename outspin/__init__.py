@@ -3,7 +3,7 @@ from __future__ import annotations
 import sys
 from typing import TYPE_CHECKING, overload
 
-from outspin.exceptions import OutspinValueError
+from outspin.exceptions import OutspinError, OutspinImportError, OutspinValueError
 
 if TYPE_CHECKING:
     from typing_extensions import Never
@@ -12,6 +12,15 @@ if sys.platform == "win32" or sys.platform == "cygwin":
     from outspin.windows import _getch, get_key
 else:
     from outspin.unix import _getch, get_key
+
+__all__ = (
+    "OutspinError",
+    "OutspinImportError",
+    "OutspinValueError",
+    "get_key",
+    "pause",
+    "wait_for",
+)
 
 
 @overload
