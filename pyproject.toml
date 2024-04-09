@@ -66,6 +66,7 @@ ignore-private = true
 ignore-module = true
 ignore-magic = true
 ignore-nested-functions = true
+ignore-overloaded-functions = true
 verbose = 1
 
 [build-system]
