@@ -28,6 +28,7 @@ ignore = ["COM", "D", "FIX", "ANN1", "ANN401", "ISC001", "T201", "TD003", "PLR20
 exclude = ["tests"]
 
 [tool.ruff.lint.per-file-ignores]
+"outspin/*" = ["PT"]
 "tests/*" = ["INP", "FBT", "PLC2701", "S101", "SLF001"]
 
 [tool.interrogate]
