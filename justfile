@@ -9,7 +9,8 @@ install:
 
 # checks test and docstring coverage
 coverage:
-    pytest --cov src/outspin/ --cov-report term-missing
+    coverage run -m pytest
+    coverage report -m
     interrogate src/outspin/
 
 # runs pytest, mypy and ruff
