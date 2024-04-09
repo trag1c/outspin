@@ -32,6 +32,7 @@ exclude = ["tests"]
 "tests/*" = ["INP", "FBT", "PLC2701", "S101", "SLF001"]
 
 [tool.interrogate]
+exclude = ["tests"]
 ignore-init-method = true
 ignore-semiprivate = true
 ignore-private = true
