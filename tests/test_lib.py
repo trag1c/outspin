@@ -3,8 +3,13 @@ from unittest.mock import patch
 
 import pytest
 
-from outspin import get_key, wait_for, pause, OutspinValueError
-from outspin.constants import *
+from outspin import (
+    OutspinValueError,
+    constants,  # noqa: F401
+    get_key,
+    pause,
+    wait_for,
+)
 
 IS_WINDOWS = sys.platform in ("win32", "cygwin")
 PLATFORM = "windows" if IS_WINDOWS else "unix"

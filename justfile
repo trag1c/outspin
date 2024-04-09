@@ -11,11 +11,12 @@ install:
 coverage:
     coverage run -m pytest
     coverage report -m
-    interrogate src/outspin/
+    interrogate
 
 # runs pytest, mypy and ruff
 check:
     pytest
-    mypy src/outspin/
-    ruff check src/outspin/
-    ruff format src/outspin/ --check
+    mypy --strict outspin
+    mypy tests
+    ruff check
+    ruff format --check
