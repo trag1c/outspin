@@ -28,10 +28,11 @@ PLATFORM = "windows" if IS_WINDOWS else "unix"
         (b"\x0c", "^L"),
         (b"\x04", "^D"),
         (b"\x03", "^C"),
-        (b"\x1b[1;5D", "ctrl+left"),
+        (b"\xe0s", "ctrl+left"),
     )
     if IS_WINDOWS
     else (
+        ("\x1b[1;5D", "ctrl+left"),
         ("x", "x"),
         ("\x1b[15~", "f5"),
         ("\x1b[1;2A", "shift+up"),
