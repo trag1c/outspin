@@ -73,4 +73,9 @@ def _getch() -> bytes:  # pragma: no cover
 
 def get_key() -> str:
     """Return a keypress from standard input."""
-    return _MODS.get(ch := _getch(), ch.decode("cp1252"))
+    if decoded := _MODS.get(ch := _getch()):
+        return decoded
+    try:
+        return ch.decode("cp1252")
+    except UnicodeDecodeError:
+        return str(ch)
