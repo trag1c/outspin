@@ -15,6 +15,12 @@ coverage:
     coverage report -m
     interrogate
 
+# same as "coverage", but uses `poetry run` instead of relying on `poetry shell`
+coverage-ci:
+    poetry run coverage run --omit=outspin/{{file_to_omit}}.py -m pytest
+    poetry run coverage report -m
+    poetry run interrogate
+
 # runs pytest, mypy and ruff
 check:
     pytest
