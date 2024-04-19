@@ -45,7 +45,7 @@ jobs:
     - name: Install just
       uses: extractions/setup-just@v2
     - name: Check coverage
-      run: just coverage-no-shell
+      run: just coverage-ci
     - name: Lint code
       if: always()
       run: |
