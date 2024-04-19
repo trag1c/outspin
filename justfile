@@ -2,6 +2,8 @@
 default:
     @just --list
 
+file_to_omit := if os_family() == "windows" { "unix" } else { "windows" }
+
 # creates and activate a Poetry environment
 install:
     poetry install
@@ -9,7 +11,8 @@ install:
 
 # checks test and docstring coverage
 coverage:
-    pytest --cov=outspin --cov-report term-missing
+    coverage run --omit=outspin/{{file_to_omit}}.py -m pytest
+    coverage report -m
     interrogate
 
 # runs pytest, mypy and ruff
