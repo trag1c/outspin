@@ -45,7 +45,6 @@ PLATFORM = "windows" if IS_WINDOWS else "unix"
 )
 @patch(f"outspin.{PLATFORM}._getch")
 def test_get_key(getch_mock: Mock, getch_payload: bytes, key: str) -> None:
-    getch_mock.side_effect = None
     getch_mock.return_value = getch_payload
     assert get_key() == key
 
