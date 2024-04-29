@@ -84,6 +84,8 @@ def _getch() -> str:  # pragma: no cover
     tty.setcbreak(1)
     try:
         return os.read(1, 8).decode("utf-8")
+    except KeyboardInterrupt:
+        return "^C"
     finally:
         termios.tcsetattr(1, termios.TCSADRAIN, old_state)
 
