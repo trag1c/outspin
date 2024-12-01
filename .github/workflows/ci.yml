@@ -9,8 +9,8 @@ on:
     - main
 
 env:
-  POETRY_VERSION: 1.8.2
   PY_COLORS: 1
+  UV_VERSION: 0.5.5
 
 jobs:
   ci:
@@ -19,37 +19,34 @@ jobs:
       fail-fast: false
       # https://blog.jaraco.com/efficient-use-of-ci-resources/
       matrix:
-        python: ["3.8", "3.12"]
+        python: ["3.9", "3.13"]
         platform: ["ubuntu", "macos", "windows"]
         include:
-        - python: "3.9"
-          platform: "ubuntu"
         - python: "3.10"
           platform: "ubuntu"
         - python: "3.11"
+          platform: "ubuntu"
+        - python: "3.12"
           platform: "ubuntu"
         - python: "pypy3.10"
           platform: "ubuntu"
     steps:
     - uses: actions/checkout@v4
-    - name: Install poetry
-      run: pipx install poetry==${{ env.POETRY_VERSION }}
-    - name: Set up Python ${{ matrix.python }}
-      uses: actions/setup-python@v5
+    - name: Setup uv
+      uses: astral-sh/setup-uv@v4
       with:
-        python-version: ${{ matrix.python }}
-        cache: poetry
+        version: ${{ env.UV_VERSION }}
     - name: Install project
-      run: poetry install
+      run: uv sync -p ${{ matrix.python }}
     - name: Install just
       uses: extractions/setup-just@v2
     - name: Check coverage
-      run: just coverage-ci
+      run: just coverage
     - name: Lint code
       if: always()
       run: |
-        poetry run ruff check
-        poetry run ruff format --check
+        uv run ruff check
+        uv run ruff format --check
     - name: Run mypy
       if: always()
-      run: poetry run mypy --strict outspin tests
+      run: uv run mypy --strict src tests

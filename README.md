@@ -223,25 +223,21 @@ A namespace containing a few useful characters groups:
 
 ## Contributing
 
-Contributions are welcome! 
+Contributions are welcome!
 
-Please open an issue before submitting a pull request (unless it's a minor
-change like fixing a typo).
+Please open an issue before submitting a pull request
+(doesn't apply to minor changes like typos).
 
 To get started:
 1. Clone your fork of the project.
-2. Set up the project with [just] (make sure you have [poetry] installed):
-```bash
-just install
+2. Install the project with [uv]:
+```sh
+uv sync
 ```
-
-> [!Note]
-> If you don't want to install `just`, simply look up the recipes
-> in the project's [`justfile`][justfile].
-
-3. After you're done, use the following `just` recipes to check your changes:
-```bash
-just check     # pytest, mypy, ruff 
+3. After you're done, use the following [`just`][just] recipes to check your
+   changes (or run the commands manually):
+```sh
+just check     # pytest, mypy, ruff
 just coverage  # pytest (with coverage), interrogate (docstring coverage)
 ```
 
@@ -250,9 +246,7 @@ just coverage  # pytest (with coverage), interrogate (docstring coverage)
 © [trag1c], 2023–2024
 
 [MIT License]: https://opensource.org/license/mit/
-[poetry]: https://python-poetry.org/
 [just]: https://github.com/casey/just/
 [trag1c]: https://github.com/trag1c/
 [dahlia]: https://github.com/dahlia-lib/dahlia/
 [nouns.txt]: https://gist.github.com/trag1c/f74b2ab3589bc4ce5706f934616f6195/
-[justfile]: https://github.com/trag1c/outspin/blob/main/justfile
